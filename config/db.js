@@ -8,7 +8,9 @@ const connectDB = async () => {
 try {
 
    await mongoose.connect(db,{
-    useNewUrlParser:true
+    useNewUrlParser:true,
+    
+
    });
    console.log("mongoDb connected");
 } catch(err) {
