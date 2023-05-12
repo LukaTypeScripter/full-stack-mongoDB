@@ -2,8 +2,16 @@ const express = require('express')
 
 const connectDb = require('./config/db')
 
+
 const app = express();
+
+//connecting mongoDB
 connectDb();
+
+//using body-parser
+app.use(express.json({extended:false}))
+
+
 app.get('/', (req,res) => res.send("api developed"))
 
 
