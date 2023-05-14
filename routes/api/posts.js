@@ -72,7 +72,7 @@ router.get('/:id',auth,async (req,res) =>{
 })
 
 //@route DELATE api/posts
-//@desc get all post
+//@desc Delate
 //@access Private
 
 router.delete('/:id',auth,async (req,res) =>{
