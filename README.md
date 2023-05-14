@@ -13,3 +13,4 @@ Created a route to get all profiles. First, I used the find method to find profi
 Created a route to get a profile by user ID. In this route, I find a specific user with the built-in function findone with ID, fill the object with specific name and avatar, and then send it in JSON format. In the catch block, I made sure that if the object ID is not found, it will show a message.
 
 Created a delete route to delete a user and their posts with ID. Added experience route to add, and an education route to delete both of them. Then, I made a GitHub user search to show user's repos.
+created a schema for Mongoose which includes fields for likes, comments, and the user who is commenting or liking the post. I also created routes for creating a new post, getting all posts, getting a post by its ID, deleting posts, as well as routes for liking, unliking, commenting, and deleting comments.
