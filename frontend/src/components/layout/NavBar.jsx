@@ -9,8 +9,8 @@ export default function NavBar() {
       </h1>
       <ul>
         <li><Link href="#">Developers</Link></li>
-        <li><Link href="/register">Register</Link></li>
-        <li><Link href="/login">Login</Link></li>
+        <li><Link to="/register">Register</Link></li>
+        <li><Link to="/login">Login</Link></li>
       </ul>
     </nav>
   )
