@@ -14,3 +14,16 @@ Created a route to get a profile by user ID. In this route, I find a specific us
 
 Created a delete route to delete a user and their posts with ID. Added experience route to add, and an education route to delete both of them. Then, I made a GitHub user search to show user's repos.
 created a schema for Mongoose which includes fields for likes, comments, and the user who is commenting or liking the post. I also created routes for creating a new post, getting all posts, getting a post by its ID, deleting posts, as well as routes for liking, unliking, commenting, and deleting comments.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Front-end section:)
+
+In my frontend app, I created landing, login, and register pages. I implemented React-Redux DevTools and Redux for state management. In the reducers folder, I created a component for the alerts reducer. Inside that component, I set up a switch statement and used the reducer function. I then combined the alerts reducer with other reducers using combineReducers.
+
+In the components folder, I created two subfolders, one for layout components and one for authentication components. In the authentication folder, I added login and register components. It's important to note that the routes for these components are private, meaning they require authentication. I implemented validation logic in the register and login components. Additionally, I connected these components with the reducer and used the setAlert action to display alerts.
+
+In the alert folder, I created components for the navbar, landing page, and alert display. These components serve their respective purposes without any special functionalities.
+
+Lastly, I created an actions folder. Inside this folder, I have two files: one for types, which helps maintain clean code by defining constants, and another file for the alert action, which generates new alerts with unique IDs.
+
+This summarizes the structure and flow of my frontend app, including the various components, reducers, actions, and their connections.
