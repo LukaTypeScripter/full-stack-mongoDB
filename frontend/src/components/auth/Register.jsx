@@ -3,8 +3,9 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 import PropTypes from 'prop-types'
-function Register({setAlert}) {
+function Register({setAlert,register}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,7 +23,7 @@ function Register({setAlert}) {
     if(password !== password2){
       setAlert('password do not match','danger');
     }else {
-    console.log('succes');
+    register({name, email, password});
     
     }
   }
@@ -41,11 +42,11 @@ function Register({setAlert}) {
             name="name"
             value={name}
             onChange={(e) => onChange(e)}
-            required
+            
           />
         </div>
         <div className="form-group">
-          <input type="email" placeholder="Email Address" name="email" required value={email}
+          <input type="email" placeholder="Email Address" name="email"  value={email}
             onChange={(e) => onChange(e)} />
           <small className="form-text">
             This site uses Gravatar so if you want a profile image, use a
@@ -58,7 +59,7 @@ function Register({setAlert}) {
             placeholder="Password"
             name="password"
             minLength="6"
-            required
+            
             value={password}
             onChange={(e) => onChange(e)}
           />
@@ -69,7 +70,7 @@ function Register({setAlert}) {
             placeholder="Confirm Password"
             name="password2"
             minLength="6"
-            required
+            
             value={password2}
             onChange={(e) => onChange(e)}
           />
@@ -83,7 +84,8 @@ function Register({setAlert}) {
   );
 }
 Register.propTypes = {
-  setAlert: PropTypes.func.isRequired
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
 };
 
-export default connect(null,{setAlert})(Register);
+export default connect(null,{setAlert,register})(Register);
