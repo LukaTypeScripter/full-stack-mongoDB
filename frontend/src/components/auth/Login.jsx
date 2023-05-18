@@ -1,6 +1,9 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
-function Login() {
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import {loginUser} from '../../actions/auth'
+function Login({login}) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -13,10 +16,8 @@ function Login() {
 
   const onSubmit = async e => {
     e.preventDefault();
-    
-    console.log('succes');
-    
-    
+    loginUser(email, password);
+    console.log(loginUser(email, password));
   }
   return (
     <section className="container">
@@ -25,13 +26,15 @@ function Login() {
       </div>
       <h1 className="large text-primary">Sign In</h1>
       <p className="lead"><i className="fas fa-user"></i> Sign into Your Account</p>
-      <form className="form" action="dashboard.html">
+      <form className="form" action="dashboard.html" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
             type="email"
             placeholder="Email Address"
             name="email"
-            required
+            value={email}
+            onChange={(e) => onChange(e)}
+            
           />
         </div>
         <div className="form-group">
@@ -39,6 +42,8 @@ function Login() {
             type="password"
             placeholder="Password"
             name="password"
+            value={password}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
@@ -49,5 +54,7 @@ function Login() {
     </section>
   )
 }
-
-export default Login
+loginUser.propTypes = {
+  login: PropTypes.func.isRequired
+}
+export default connect(null,{loginUser})(Login); 
