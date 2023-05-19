@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { REGISTER_SUCCESS,REGISTER_FAIL,USER_LOADED,AUTH_ERROR,LOGIN_SUCCESS,LOGIN_FAIL } from './type';
+import { REGISTER_SUCCESS,REGISTER_FAIL,USER_LOADED,AUTH_ERROR,LOGIN_SUCCESS,LOGIN_FAIL,LOGOUT } from './type';
 import { setAlert } from './alert';
-import setAuthToken from '../utils/setAuthyToken';
+import setAuth from '../utils/setAuthyToken';
 //load user
 
 export const loadUser = () => async dispatch => {
     if(localStorage.token) {
-        setAuthToken(localStorage.token);
+        setAuth(localStorage.token);
     }
 
     try {
@@ -64,7 +64,7 @@ export const register = ({name, email, password}) => async dispatch => {
 }
 
 //login user
-export const loginUser = ({ email, password}) => async dispatch => {
+export const loginUser = ( email, password) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -94,4 +94,11 @@ export const loginUser = ({ email, password}) => async dispatch => {
             type: LOGIN_FAIL
         })
     }
+} 
+
+//logout /clear profile
+
+
+export const logout = () => dispatch => {
+    dispatch({type: LOGOUT})
 }
