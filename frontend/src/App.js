@@ -6,6 +6,8 @@ import Landing from './components/layout/Landing';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import { useEffect } from'react';
+import DashBoard from './components/dashboard/DashBoard';
+import PrivateRoutes from './components/routing/PrivateRoutes';
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -29,9 +31,10 @@ function App() {
     
      <Alert/>
       <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" component={<Landing />} />
+          <Route path="/register" component={<Register />} />
+          <Route path="/login" component={<Login />} />
+          <Route path="/dashboard" element={<PrivateRoutes><DashBoard /></PrivateRoutes>} />
         </Routes>
    
     </Fragment>
