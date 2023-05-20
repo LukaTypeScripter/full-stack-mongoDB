@@ -6,9 +6,14 @@ import {logout} from '../../actions/auth'
  function NavBar({auth: {isAuthenticated,loading},logout}) {
   const authLinks = (
     <ul>
+      <li>
+          <Link to="/dashboard">
+          <i class="fas fa-user" aria-hidden="true"></i>{' '}
+          <span className="hide-sm"> Dashboard</span></Link>
+        </li>
     <li>
       <Link onClick={logout} href="#">
-        <i className="fas fa-sign-out-alt"></i>{' '}
+      <i class="fas fa-sign-out" aria-hidden="true"></i>{' '}
       <span className="hide-sm">Logout</span> </Link>
     </li>
    
