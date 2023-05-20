@@ -8,6 +8,7 @@ import Register from './components/auth/Register';
 import { useEffect } from'react';
 import DashBoard from './components/dashboard/DashBoard';
 import PrivateRoutes from './components/routing/PrivateRoutes';
+import CreateProfile from './components/profile-form/CreateProfile';
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -24,22 +25,22 @@ function App() {
   }, []);
   return (
     <Provider store={store}>
-    <Router>
-      <Fragment>
-    <NavBar />
-    
-    
-     <Alert/>
-      <Routes>
-          <Route path="/" component={<Landing />} />
-          <Route path="/register" component={<Register />} />
-          <Route path="/login" component={<Login />} />
-          <Route path="/dashboard" element={<PrivateRoutes><DashBoard /></PrivateRoutes>} />
-        </Routes>
-   
-    </Fragment>
-  </Router>
-  </Provider>
+      <Router>
+        
+          <NavBar />
+          <Alert />
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route element={<PrivateRoutes/>}>
+              <Route path="/dashboard" element={<DashBoard />} exact />
+              <Route path="/create-profile" element={<CreateProfile />} exact />
+            </Route>
+          </Routes>
+        
+      </Router>
+    </Provider>
   );
 }
 
