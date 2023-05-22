@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
-import { Link,withRouter  } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux';
 import { createProfile } from '../../actions/profile';
-const CreateProfile = ({createProfile,history}) => {
+const CreateProfile = ({createProfile}) => {
+  const navigate = useNavigate()
     const [formData,setFormData] = useState({
        company:'',
        website:'',
@@ -24,7 +25,7 @@ const CreateProfile = ({createProfile,history}) => {
 
     const onSubmit = e => {
         e.preventDefault()
-        createProfile(formData,history)
+        createProfile(formData,navigate)
     }
   return (
      <section className="container">
@@ -143,4 +144,4 @@ CreateProfile.propTypes = {
 }
 
 
-export default connect(null,{createProfile})(withRouter(CreateProfile))
+export default connect(null,{createProfile})(CreateProfile)
