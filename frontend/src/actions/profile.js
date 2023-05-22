@@ -1,7 +1,7 @@
 import axios from "axios";
 import { setAlert } from "./alert";
 import {GET_PROFILE,GET_PROFILES,GET_REPOS,PROFILE_ERROR,CLEAR_PROFILE} from './type'
-
+import { Navigate } from 'react-router-dom';
 //get current users prof
 
 export const getCurrentProfile = () => async dispatch => {
@@ -22,7 +22,7 @@ export const getCurrentProfile = () => async dispatch => {
 
 // Create or update profile
 
-export const createProfile = (formData, history, edit = false) => async dispatch => {
+export const createProfile = (formData, navigate, edit = false) => async dispatch => {
   try {
     const config = {
         headers: {
@@ -37,7 +37,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
 
     dispatch(setAlert(edit? 'Profile Updated' : 'Profile Created','success'));
   if(!edit) {
-    history.push('/dashboard');
+    navigate('/dashboard');
   }
 
 } catch (err) {
