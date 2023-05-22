@@ -15,6 +15,7 @@ import store from './store';
 import Alert from './components/layout/Alert';
 import { loadUser } from './actions/auth';
 import setAuth from './utils/setAuthyToken'
+import EditProfile from './components/profile-form/EditProfile';
 
 if(localStorage.token) {
   setAuth(localStorage.token);
@@ -36,6 +37,7 @@ function App() {
             <Route element={<PrivateRoutes/>}>
               <Route path="/dashboard" element={<DashBoard />} exact />
               <Route path="/create-profile" element={<CreateProfile />} exact />
+              <Route path="/edit-profile" element={<EditProfile />} exact />
             </Route>
           </Routes>
         
