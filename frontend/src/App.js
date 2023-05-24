@@ -9,6 +9,7 @@ import { useEffect } from'react';
 import DashBoard from './components/dashboard/DashBoard';
 import PrivateRoutes from './components/routing/PrivateRoutes';
 import CreateProfile from './components/profile-form/CreateProfile';
+import AddExperiance from './components/profile-form/AddExperiance';
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -38,6 +39,7 @@ function App() {
               <Route path="/dashboard" element={<DashBoard />} exact />
               <Route path="/create-profile" element={<CreateProfile />} exact />
               <Route path="/edit-profile" element={<EditProfile />} exact />
+              <Route path="/add-experiance" element={<AddExperiance/>} exact />
             </Route>
           </Routes>
         
