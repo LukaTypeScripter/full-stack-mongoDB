@@ -14,3 +14,5 @@ export const PROFILE_ERROR = 'GET_PROFILE';
 export const CLEAR_PROFILE = 'GET_PROFILES';
 
 
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+
